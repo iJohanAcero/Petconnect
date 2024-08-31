@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-08-2024 a las 00:48:30
+-- Tiempo de generación: 31-08-2024 a las 06:51:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `administrador` (
   `n documento` int(11) NOT NULL,
-  `id_registro` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL
+  `id_registro_FK` int(11) NOT NULL,
+  `id_usuario_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -44,8 +44,8 @@ CREATE TABLE `calificacion` (
   `puntaje` int(11) NOT NULL,
   `comentario` tinytext NOT NULL,
   `fecha` datetime NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_fundacion` int(11) NOT NULL
+  `id_guardian_FK` int(11) NOT NULL,
+  `id_fundacion_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -56,21 +56,21 @@ CREATE TABLE `calificacion` (
 
 CREATE TABLE `donacion` (
   `id` int(11) NOT NULL,
-  `id_guardian` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `monto` int(11) NOT NULL,
+  `total_donacion` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `id_fundacion` int(11) NOT NULL
+  `id_guardian_FK` int(11) NOT NULL,
+  `id_producto_FK` int(11) NOT NULL,
+  `id_fundacion_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estadoad`
+-- Estructura de tabla para la tabla `estado_adopcion`
 --
 
-CREATE TABLE `estadoad` (
+CREATE TABLE `estado_adopcion` (
   `id` int(11) NOT NULL,
   `tipo_estado` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -83,9 +83,9 @@ CREATE TABLE `estadoad` (
 
 CREATE TABLE `fundacion` (
   `NIT` int(11) NOT NULL,
-  `id_registro` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_perfil` int(11) NOT NULL
+  `id_registro_FK` int(11) NOT NULL,
+  `id_usuario_FK` int(11) NOT NULL,
+  `id_perfil_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -95,10 +95,10 @@ CREATE TABLE `fundacion` (
 --
 
 CREATE TABLE `guardian` (
-  `n documento` int(11) NOT NULL,
-  `id_registro` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_perfil` int(11) NOT NULL
+  `n_documento` int(11) NOT NULL,
+  `id_registro_FK` int(11) NOT NULL,
+  `id_usuario_FK` int(11) NOT NULL,
+  `id_perfil_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -112,9 +112,9 @@ CREATE TABLE `informe` (
   `fecha` date NOT NULL,
   `contenido` varchar(300) NOT NULL,
   `nombre` varchar(30) NOT NULL,
-  `id_mascota` int(11) NOT NULL,
-  `id_fundacion` int(11) NOT NULL,
-  `id_estadoad` int(11) NOT NULL
+  `id_mascota_FK` int(11) NOT NULL,
+  `id_fundacion_FK` int(11) NOT NULL,
+  `id_estado_adopcion_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -129,9 +129,9 @@ CREATE TABLE `mascota` (
   `edad` int(11) DEFAULT NULL,
   `sexo` enum('M','F') NOT NULL,
   `imagen` blob DEFAULT NULL,
-  `id_tipo_mascota` int(11) NOT NULL,
-  `id_fundacion` int(11) NOT NULL,
-  `id_vacunas` int(11) NOT NULL
+  `id_tipo_mascota_FK` int(11) NOT NULL,
+  `id_fundacion_FK` int(11) NOT NULL,
+  `id_vacunas_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -143,7 +143,7 @@ CREATE TABLE `mascota` (
 CREATE TABLE `perfil` (
   `id` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,
-  `preferencia` varchar(20) NOT NULL,
+  `preferencia` tinyint(1) NOT NULL,
   `descripcion` tinytext NOT NULL,
   `imagen` blob NOT NULL,
   `direccion` varchar(30) NOT NULL
@@ -158,11 +158,11 @@ CREATE TABLE `perfil` (
 CREATE TABLE `proceso_adopcion` (
   `id` int(11) NOT NULL,
   `fecha_inicio` datetime NOT NULL,
-  `fecha_actializada` datetime NOT NULL,
-  `id_guardian` int(11) NOT NULL,
-  `id_mascota` int(11) NOT NULL,
-  `id_fundacion` int(11) NOT NULL,
-  `id_estado` int(11) NOT NULL
+  `fecha_finalizacion` datetime NOT NULL,
+  `id_guardian_FK` int(11) NOT NULL,
+  `id_mascota_FK` int(11) NOT NULL,
+  `id_fundacion_FK` int(11) NOT NULL,
+  `id_estado_adopcion_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -188,12 +188,11 @@ CREATE TABLE `producto` (
 
 CREATE TABLE `publicacion` (
   `id` int(11) NOT NULL,
-  `id_fundacion` int(11) NOT NULL,
   `titulo` varchar(20) NOT NULL,
-  `imagen` blob NOT NULL,
+  `imagen` blob DEFAULT NULL,
   `contenido` tinytext NOT NULL,
   `fecha_creacion` datetime NOT NULL,
-  `fecha_modificacion` datetime NOT NULL
+  `id_fundacion_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -204,24 +203,24 @@ CREATE TABLE `publicacion` (
 
 CREATE TABLE `recuperar_contraseña` (
   `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
   `codigo_recuperacion` int(11) NOT NULL,
   `email` varchar(30) NOT NULL,
   `fecha_solicitud` datetime NOT NULL,
-  `fecha_expiracion` datetime NOT NULL
+  `fecha_expiracion` datetime NOT NULL,
+  `id_usuario_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `red social`
+-- Estructura de tabla para la tabla `red_social`
 --
 
-CREATE TABLE `red social` (
+CREATE TABLE `red_social` (
   `id` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `URL` varchar(30) NOT NULL,
-  `id_fundacion` int(11) NOT NULL
+  `id_fundacion_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -244,7 +243,7 @@ CREATE TABLE `registro` (
 
 CREATE TABLE `tipo_mascota` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
+  `especie` varchar(30) NOT NULL,
   `raza` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -266,14 +265,14 @@ CREATE TABLE `usuario` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `vacunas`
+-- Estructura de tabla para la tabla `vacuna`
 --
 
-CREATE TABLE `vacunas` (
+CREATE TABLE `vacuna` (
   `id` int(11) NOT NULL,
-  `fecha` datetime NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `veterinaria` varchar(30) NOT NULL
+  `fecha_vacunacion` datetime NOT NULL,
+  `nombre_vacuna` varchar(30) NOT NULL,
+  `direccion_veterinaria` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -299,9 +298,9 @@ ALTER TABLE `donacion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `estadoad`
+-- Indices de la tabla `estado_adopcion`
 --
-ALTER TABLE `estadoad`
+ALTER TABLE `estado_adopcion`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -314,7 +313,7 @@ ALTER TABLE `fundacion`
 -- Indices de la tabla `guardian`
 --
 ALTER TABLE `guardian`
-  ADD PRIMARY KEY (`n documento`);
+  ADD PRIMARY KEY (`n_documento`);
 
 --
 -- Indices de la tabla `informe`
@@ -359,12 +358,6 @@ ALTER TABLE `recuperar_contraseña`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `red social`
---
-ALTER TABLE `red social`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `registro`
 --
 ALTER TABLE `registro`
@@ -377,9 +370,9 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `vacunas`
+-- Indices de la tabla `vacuna`
 --
-ALTER TABLE `vacunas`
+ALTER TABLE `vacuna`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -405,9 +398,9 @@ ALTER TABLE `donacion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `estadoad`
+-- AUTO_INCREMENT de la tabla `estado_adopcion`
 --
-ALTER TABLE `estadoad`
+ALTER TABLE `estado_adopcion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -453,12 +446,6 @@ ALTER TABLE `recuperar_contraseña`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `red social`
---
-ALTER TABLE `red social`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
@@ -471,9 +458,9 @@ ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `vacunas`
+-- AUTO_INCREMENT de la tabla `vacuna`
 --
-ALTER TABLE `vacunas`
+ALTER TABLE `vacuna`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
