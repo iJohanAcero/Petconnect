@@ -1,3 +1,46 @@
+/* POSIBLES COLORES A LA ELECCIÓN DE LA PAGINA WEB
+
+Para una red social de mascotas, es importante elegir colores que sean atractivos, amigables y transmitan sensaciones positivas. Los colores adecuados pueden hacer que la interfaz sea más visual y entretenida, creando una atmósfera acogedora y alegre. Aquí te sugiero algunos esquemas de colores:
+
+### 1. **Colores Principales:**
+   - **Verde menta (#98FF98)**: Un color suave y relajante, asociado con la naturaleza y la frescura. Refuerza la conexión con los animales y el entorno natural.
+   - **Turquesa (#40E0D0)**: Brillante y alegre, ideal para transmitir energía positiva. Funciona bien en botones o elementos interactivos.
+   - **Amarillo pastel (#FFFACD)**: Un color cálido y amigable que puede crear una sensación acogedora sin ser demasiado intenso.
+   - **Naranja claro (#FFA07A)**: Estimulante y divertido, pero no tan agresivo como otros tonos de naranja. Puede usarse para destacar acciones importantes, como botones de registro o publicaciones.
+
+### 2. **Colores Secundarios:**
+   - **Gris claro (#F5F5F5)**: Como fondo neutro para equilibrar los colores más vivos sin distraer demasiado.
+   - **Azul cielo (#87CEEB)**: Un tono suave que da una sensación de calma y confianza, ideal para secciones de información.
+   - **Rosa suave (#FFB6C1)**: Alegre y amigable, perfecto para pequeños detalles que resaltan sin ser abrumadores.
+
+### 3. **Colores de Acción:**
+   - **Verde lima (#32CD32)**: Para indicar acciones exitosas o positivas, como "Adoptar", "Donar" o "Me Gusta".
+   - **Rojo coral (#FF4040)**: Para acciones de advertencia o eliminaciones, pero en un tono más suave que no cause ansiedad.
+
+### 4. **Esquema de contraste:**
+   - **Blanco (#FFFFFF)**: Como fondo principal para mantener la claridad y el enfoque en las imágenes de las mascotas y el contenido.
+   - **Negro suave o Gris oscuro (#2F4F4F)**: Para texto y encabezados principales, asegurando buena legibilidad y contraste visual.
+
+### 5. **Consejos de implementación:**
+   - **Paleta amigable y cálida**: Colores como el turquesa, menta y amarillos suaves pueden generar una sensación de bienvenida y alegría, lo cual es perfecto para una red social de mascotas.
+   - **Imágenes destacadas**: Usa colores neutros (como grises claros o blancos) en el fondo para que las imágenes de las mascotas sean el foco principal.
+   - **Botones e interacciones**: Los colores brillantes (verde lima, azul cielo, naranja claro) ayudan a guiar al usuario a interactuar fácilmente con los botones y las acciones clave.
+
+### Ejemplo de paleta de colores:
+- **#98FF98 (Verde menta)**
+- **#40E0D0 (Turquesa)**
+- **#FFFACD (Amarillo pastel)**
+- **#FFA07A (Naranja claro)**
+- **#FFB6C1 (Rosa suave)**
+- **#F5F5F5 (Gris claro)**
+- **#32CD32 (Verde lima)**
+- **#2F4F4F (Gris oscuro)**
+
+### Efecto visual:
+Este esquema logra una mezcla de energía y calma, perfecta para un ambiente donde los usuarios compartirán momentos alegres con sus mascotas, manteniendo una experiencia visualmente entretenida y fácil de navegar.
+
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap'); /*importamos una fuente de google fonts para poder utilizarla en nuestro proyecto */
 
 /* AQUÍ CREAMOS VARIABLES DE COLOR QUE PODREMOS UTILIZAR MAS ADELANTE EN LA PAGINA WEB SIN TENER QUE APRENDERNOS COLORES, SOLO LLAMANDO LA VARIABLE, TENDREMOS EL COLOR YA CREADO*/
@@ -5,13 +48,14 @@
     --color-white: hsl(252, 30%, 100%); 
     --color-light: hsl(252, 30%, 95%); 
     --color-gray: hsl(252, 15%, 65%); 
-    --color-primary: hsl(252, 75%, 60%); 
+    --color-primary: #FFA07A; 
     --color-secondary: hsl(252, 100%, 90%); 
     --color-success: hsl(120, 95%, 65%);
     --color-danger: hsl(0, 95%, 65%);
     --color-dark: hsl(252, 30%, 17%);
     --color-black: hsl(252, 30%, 10%);
 
+    /* AQUÍ CREAMOS LAS VARIABLES PARA EL RADIO, PADDING DE VARIOS ELEMENTOS*/
     --border-radius: 2rem;
     --card-border-radius:1rem;
     --btn-padding: 0.6rem 2rem;
@@ -58,4 +102,71 @@ img {
 }
 
 .btn {
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-primario {
+    background:var(--color-primary);
+    color: black;
+}
+
+.text-fuerte {
+    font-weight: 500;
+}
+
+.text-suave {
+    color: var(--color-gray);
+}
+
+
+/*        BARRA DE NAVEGACIÓN              */
+
+nav {
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 0.7rem 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+/* EDITAMOS EL DIV DONDE TENEMOS TODA LA BARRA DE NAVEGACIÓN*/
+nav .container { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .barra-buscador {
+    background: var(--color-light);
+    border-radius: var(--border-radius);
+    padding: var(--search-padding);
+}
+
+nav .barra-buscador input[type="search"] {
+    background:transparent;
+    width: 30vw;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+nav .barra-buscador input[type="search"]::placeholder{
+    color:var(--color-gray);
+}
+
+nav .crear {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
