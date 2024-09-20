@@ -29,11 +29,11 @@
     </nav>
 
 <!------------------------------------MAIN------------------------------------------------------------->
-    <main>
+<main>
         <div class="container">
 <!------------------------------IZQUIERDA-------------------------->
             <div class="izquierda">
-                <a class="perfil"></a>
+                <a class="perfil">
                     <div class="foto-perfil">
                         <img src="../images/perfil2.jpg">
                     </div>
@@ -43,27 +43,79 @@
                             @Acero24
                         </p>
                     </div>
-            </div>
+                </a>
+                    
 <!------------------------------BARRA LATERAL - SIDE BAR-------------------------->
             <div class="sidebar">
-                <a class="menu-lateral">
+                <a class="menu-item">
                     <span><i class="uil uil-house-user"></i></span> <h3>Inicio</h3>
-                    <span><i class="uil uil-user-circle"></i></span> <h3>Perfil</h3>
-                    <span><i class="uil uil-shop"></i></span> <h3>Fundaciones</h3>
+                </a>
+                
+                <a class="menu-item">
+                <span><i class="uil uil-user-circle"></i></span> <h3>Perfil</h3>
+                </a>
+
+                <a class="menu-item">
+                    <span><i class="uil uil-shop"></i></s> <h3>Fundaciones</h3>
+                </a>
+
+                <a class="menu-item">
                     <span><i class="uil uil-credit-card"></i></span> <h3>Donaciones</h3>
-                    <span><img src="../images/pet-carrier.svg" style="width: 16px; height:20px" ></span> <h3>Mascotas</h3>
-                    <span></span> <h3>Configuración</h3>
+                </a>
+
+                <a class="menu-item" id="popup-mascotas">
+                    <span><img src="../images/huella.png" style="width: 16px; height:20px" ></span> <h3>Mascotas</h3>
+                    <!------------------------------POPUP DE MASCOTAS -------------------------->
+                    <div class="mascotas-popup">
+                        <div>
+                            <div class="foto-perfil">
+                                <img src="../images/perro.JPG">
+                            </div>
+                            <div class="popup-body">
+                                <b class="text-suave">Perros</b>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="foto-perfil">
+                                <img src="../images/gato.jpg">
+                            </div>
+                            <div class="popup-body">
+                                <b class="text-suave">Gatos</b>
+                            </div>
+
+                            <div>
+                                <div class="foto-perfil">
+                                    <img src="../images/todo-mascotas.jpg">
+                                </div>
+                                <div class="popup-body">
+                                    <b class="text-suave">Todas las mascotas</b>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!---------------------FIN DEL POPUP DE MASCOTAS----------------------------->
+                </a>
+
+                <a class="menu-item">
+                    <span><i class="uil uil-setting"></i></span> <h3>Configuración</h3>
                 </a>
             </div>
-<!------------------------------MEDIO-------------------------->
-            <div class="medio">
-                
-            </div>
-<!------------------------------DERECHA-------------------------->
-            <div class="derecha">
-                
-            </div>
+            <!------------------------FIN DEL SIDEBAR---------------------->
+    <label for="crear-publicacion" class="btn btn-primario">Crear publicación</label>
+    
         </div>
-    </main>
+<!------------------------------MEDIO-------------------------->
+                <div class="medio">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis porttitor purus, et scelerisque augue congue eget. Cras fermentum, turpis quis scelerisque laoreet, urna metus fringilla eros, ullamcorper maximus elit sapien eget massa. Quisque placerat nisl non pharetra mollis. Nunc in nisi placerat, varius mauris quis, venenatis tortor. Sed enim sem, faucibus ultrices enim ac, elementum porta nisl. Vivamus accumsan condimentum elit, ac finibus mauris lobortis in. Donec pellentesque lectus in felis placerat placerat. Nullam rutrum lorem lacus, sed feugiat neque imperdiet sit amet. 
+                </div>
+<!------------------------------DERECHA-------------------------->
+                <div class="derecha">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis porttitor purus, et scelerisque augue congue eget. Cras fermentum, turpis quis scelerisque laoreet, urna metus fringilla eros, ullamcorper maximus elit sapien eget massa. Quisque placerat nisl non pharetra mollis. Nunc in nisi placerat, varius mauris quis, venenatis tortor. Sed enim sem, faucibus ultrices enim ac, elementum porta nisl. Vivamus accumsan condimentum elit, ac finibus mauris lobortis in. Donec pellentesque lectus in felis placerat placerat. Nullam rutrum lorem lacus, sed feugiat neque imperdiet sit amet. 
+                </div>
+            
+        </div>
+</main>
 </body>
 </html>
