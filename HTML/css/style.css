@@ -271,7 +271,7 @@ main .container .izquierda .perfil  {
 }
 
 .izquierda .sidebar .menu-item:last-child.activo {
-    border-top-left-radius: var(--card-border-radius);
+    border-bottom-left-radius: var(--card-border-radius);
     overflow: hidden;
 }
 
@@ -280,5 +280,37 @@ main .container .izquierda .perfil  {
     width: 100%;
     text-align: center;
     padding: 1rem 0 ;
+}
+
+/*----------------- TIPOS DE MASCOTAS POPUP -----------------*/
+
+.izquierda .mascotas-popup {
+    position: absolute;
+    top: 0;
+    left: 110%;
+    width: 100%;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding-left: 0.5rem;
+    box-shadow: 0 0 2rem hsl(var(--color-primary) 75%, 60% 25%);
+    z-index: inherit;
+    display: none;
+}
+
+.izquierda .mascotas-popup > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.izquierda .mascotas-popup .popup-item:last-child {
+    margin-bottom: 0;
+}
+
+.izquierda .mascotas-popup .popup-item:hover {
+    background: var(--color-light);
+    border-radius: var(--card-border-radius);
+    translate: all 300ms ease;
 }
 
