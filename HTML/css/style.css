@@ -48,7 +48,7 @@ Este esquema logra una mezcla de energía y calma, perfecta para un ambiente don
     --color-white: hsl(252, 30%, 100%); 
     --color-light: hsl(252, 30%, 95%); 
     --color-gray: hsl(252, 15%, 65%); 
-    --color-primary: #FFA07A; 
+    --color-primary: #FFA07A;
     --color-secondary: hsl(252, 100%, 90%); 
     --color-success: hsl(120, 95%, 65%);
     --color-danger: hsl(0, 95%, 65%);
@@ -61,6 +61,10 @@ Este esquema logra una mezcla de energía y calma, perfecta para un ambiente don
     --btn-padding: 0.6rem 2rem;
     --search-padding:0.6rem 1rem;
     --card-padding:1rem;
+
+    /* CREAMOS VARIABLES PARA LOS DIV IZQUIERDA Y DERECHA*/
+    --sticky-top-left:5.4rem;
+    --sticky-top-right: -18rem;
 }
 
 /*REALIZAMOS CAMBIOS PREDETERMINADOS A TODA LA PAGINA PARA QUE ASI SE HAGA TODO DE MANERA MAS UNIFORME DESDE UN PRINCIPIO*/
@@ -91,11 +95,9 @@ body {
 
 .foto-perfil {
     width: 3.5rem;
-    height: 3.5rem;
     border-radius: 50%;
     aspect-ratio: 1/1;
     overflow: hidden;
-    object-fit: contain;
 }
 
 img {
@@ -183,7 +185,100 @@ main {
 
 main .container {
     display: grid;
-    grid-template-columns: 18vh auto 20vw;
+    grid-template-columns: 18vw /*left*/ auto/*middle*/ 20vw/*right*/;
     column-gap: 2rem;
     position: relative;
 }
+
+
+/*------------------- LEFT ----------------------------*/
+/*ESTE CONTENEDOR SIRVE PARA QUE LA SIDEBAR NO SE MUEVA DURANTE EL SCROLL*/
+main .container .izquierda {
+    height: max-content;
+    position: sticky;
+    top: var(--sticky-top-left);
+}
+
+main .container .izquierda .perfil  {
+    padding: var(--card-padding);
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    width: 100%;
+}
+
+/*------------- SIDEBAR -------------*/
+
+.izquierda .sidebar {
+    margin-top: 1rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+
+}
+
+.izquierda .sidebar .menu-item  {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    cursor: pointer;
+    translate: all 300ms ease;
+    position: relative;
+}
+
+.izquierda .sidebar .menu-item:hover {
+    background: var(--color-light);
+}
+
+.izquierda .sidebar i {
+    font-size: 1.4rem;
+    color: var(--color-gray);
+    margin-left: 2rem;
+    position: relative;
+} 
+
+.izquierda .sidebar h3 {
+    margin-left: 1.5rem;
+    font-size: 1rem;
+}
+
+/* AQUÍ LE DAMOS UN COLOR AL ELEMENTO DEL SIDEBAR QUE ESTE ACTIVO*/
+.izquierda .sidebar .activo {
+    background:var(--color-light);
+
+}
+
+/* HACEMOS QUE CAMBIE DE COLOR EL i(icono) Y EL h3 CUANDO ESTE ACTIVO*/
+.izquierda .sidebar .activo i, 
+.izquierda .sidebar .activo h3 {
+    color: var(--color-primary);
+}
+
+/* AQUÍ AÑADIMOS UNA PEQUEÑA BARRA DEL COLOR PRIMARIO AL ELEMENTO ACTIVO*/
+.izquierda .sidebar .activo::before {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 100%;
+    position: absolute;
+    background: var(--color-primary);
+}
+
+.izquierda .sidebar .menu-item:first-child.activo {
+    border-top-left-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.izquierda .sidebar .menu-item:last-child.activo {
+    border-top-left-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.izquierda .btn {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0 ;
+}
+
