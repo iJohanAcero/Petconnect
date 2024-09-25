@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"> <!-- Llamamos a la librería de iconos --> 
+
+</head>
+<body>
+    <nav>
+        <div class="container">
+
+            <h2 class="nombre">PetsConnect</h2>
+
+            <div class="barra-buscador">
+                <i class="uil uil-search"></i>
+                <input type="search" placeholder="Busca en publicaciones, perfiles o intereses...">
+            </div>
+
+            <div  class="crear">
+                <label class="btn btn-primario" for="crear-post">Crear</label>
+                <div class="foto-perfil">
+                    <img src="../images/perfil2.jpg">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!--============================================================MAIN=============================================-->
+<main>
+    <div class="container">
+<!--==================================IZQUIERDA================================================-->
+        <div class="izquierda">
+            <a class="perfil">
+                <div class="foto-perfil">
+                    <img src="../images/perfil2.jpg">
+                </div>
+                <div class="hundle">
+                    <h4> Johan Acero</h4>
+                    <p class="text-suave">
+                        @Acero24
+                    </p>
+                </div>
+            </a>
+                    
+<!------------------------------BARRA LATERAL - SIDE BAR-------------------------->
+            <div class="sidebar">
+                <a class="menu-item ">
+                    <span><i class="uil uil-house-user"></i></span> <h3>Inicio</h3>
+                </a>
+                
+                <a class="menu-item activo">
+                    <span><i class="uil uil-user-circle"></i></span> <h3>Perfil</h3>
+                </a>
+
+                <a class="menu-item">
+                    <span><i class="uil uil-shop"></i></span><h3>Fundaciones</h3>
+                </a>
+
+                <a class="menu-item">
+                    <span><i class="uil uil-credit-card"></i></span> <h3>Donaciones</h3>
+                </a>
+
+                <a class="menu-item" id="popup-mascotas">
+                    <span><i class="uil uil-heartbeat"></i></span> <h3>Mascotas</h3>
+
+<!---------------------------------------------------POPUP DE MASCOTAS --------------------------------------------->
+                    <div class="mascotas-popup">
+                        <div class="popup-item">
+                            <div class="foto-perfil">
+                                <img src="../images/perro.JPG">
+                            </div>
+                            <div class="popup-body">
+                                <b class="text-suave">Perros</b>
+                            </div>
+                        </div>
+
+                        <div class="popup-item">
+                            <div class="foto-perfil">
+                                <img src="../images/gato.jpg">
+                            </div>
+                            <div class="popup-body">
+                                <b class="text-suave">Gatos</b>
+                            </div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="foto-perfil">
+                                <img src="../images/todo-mascotas.jpg">
+                            </div>
+                            <div class="popup-body">
+                                <b class="text-suave">Todos</b>
+                            </div>
+                        </div>
+                    </div>
+                    <!---------------------FIN DEL POPUP DE MASCOTAS----------------------------->
+                </a>
+
+                <a class="menu-item">
+                    <span><i class="uil uil-setting"></i></span> <h3>Configuración</h3>
+                </a>
+            </div>
+            <!------------------------FIN DEL SIDEBAR---------------------->
+    <label for="crear-publicacion" class="btn btn-primario">Crear publicación</label>
+        </div>
+    <!------------------------------FIN DEL LADO IZQUIERDO-------------------------->
+    
+<!--====================================================MEDIO=======================================================-->
+                <div class="medio">
+                    <div class="scroll">
+                    <!------------------------ SCROLL HORIZONTAL DE MASCOTAS-->
+                    <div class="recomendados">
+                        
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Apolo</p>
+                        </div>
+
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Benji</p>
+                        </div>
+
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Hanna</p>
+                        </div>
+
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Lukas</p>
+                        </div>
+
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Toby</p>
+                        </div>
+
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Figaro</p>
+                        </div>
+
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Tiger</p>
+                        </div>
+
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Romeo</p>
+                        </div>
+
+                        <div class="recomendado-individual">
+                            <div class="foto-perfil">
+                                <img src="../images/perfil2.jpg">
+                            </div>
+                            <p class="mascota">Beny</p>
+                        </div>
+                    </div>
+                </div>
+                    <!--------------------FIN DEL SCROLL RECOMENDADO------------>
+
+                    <!-----INPUT DE CREAR PUBLICACIÓN...IMPORTANTE!!(SOLO PARA EL ROL DE FUNDACIÓN)-->
+                    <form class="crear-post">
+                        <div class="foto-perfil">
+                            <img src="../images/perfil2.jpg">
+                        </div>
+                        <input type="text" placeholder="Ayuda a una mascota o promueve un evento aquí..." id="crear-post">
+                        <input type="submit" value="Publicar" class="btn btn-primario">
+                    </form>
+                    <!---------------------------------FEED DE PUBLICACIONES----------------------------->
+                    <div class="feed">
+                        <div class="feed-individual">
+                            <div class="head">
+                                <div class="usuario">
+                                    <div class="foto-perfil">
+                                        <img src="../images/perfil.jpg" alt="">
+                                    </div>
+                                    <div class="informacion">
+                                        <h3>Fundacion TEPA</h3>
+                                        <small>Bogota, Hace 30 Minutos</small>
+                                    </div>
+                                </div>
+                                <span class="editar">
+                                    <i class="uil uil-ellipsis-h"></i>
+                                </span>
+                            </div>
+                            <div class="foto">
+                                <img src="../images/feed1.jpeg">
+                            </div>
+                            <div class="boton-accion">
+                                <div class="botones-interaccion">
+                                    <span><i class="uil uil-thumbs-up"></i></span>
+                                    <span><i class="uil uil-share"></i></span>
+                                </div>
+                            </div>
+                            <div class="likes">
+                                <span><img src="../images/perfil.jpg"></span>
+                                <span><img src="../images/perfil2.jpg"></span>
+                                <span><img src="../images/perfil.jpg"></span>
+                                <p>Han reaccionado</p><b>Valentina</b> y <b>40 otros</b>
+                            </div>
+                            <div class="descripcion"></div>
+                            <p>Jornada de adopcion, no se la pueden perder!!!</p>
+                        </div>
+
+                    </div>
+                </div>
+<!--==============================================DERECHA===========================================-->
+                <div class="derecha">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis porttitor purus, et scelerisque augue congue eget. Cras fermentum, turpis quis scelerisque laoreet, urna metus fringilla eros, ullamcorper maximus elit sapien eget massa. Quisque placerat nisl non pharetra mollis. Nunc in nisi placerat, varius mauris quis, venenatis tortor. Sed enim sem, faucibus ultrices enim ac, elementum porta nisl. Vivamus accumsan condimentum elit, ac finibus mauris lobortis in. Donec pellentesque lectus in felis placerat placerat. Nullam rutrum lorem lacus, sed feugiat neque imperdiet sit amet. 
+                </div>
+            </div>
+</main>
+<script src="../js/main.js"></script>
+</body>
+</html>
