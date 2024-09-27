@@ -173,6 +173,7 @@ nav .crear {
     display: flex;
     align-items: center;
     gap: 2rem;
+    user-select: none;
 }
 
 
@@ -483,4 +484,30 @@ main .container .izquierda .perfil  {
 
 .medio .feed .boton-accion {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    margin:0.6rem;
+}
+
+.medio .likes {
+    display: flex;
+}
+
+.medio .likes span{
+    width: 1.4rem;
+    height: 1.4rem;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-white);
+    margin-left: -0.4rem;   
+}
+
+.medio .likes span:first-child {
+    margin: 0;
+}
+
+.medio .likes p {
+    margin-left: 0.3rem;
 }
