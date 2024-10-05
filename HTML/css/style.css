@@ -102,7 +102,7 @@ body {
 /*ESTILOS GENERALES*/
 
 .container {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -160,8 +160,21 @@ nav {
 /* EDITAMOS EL DIV DONDE TENEMOS TODA LA BARRA DE NAVEGACIÓN*/
 nav .container { 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center;             /* Activa Grid en el nav */
+}
+
+nav .container .nombre {
+    margin-left: 0;
+}
+
+nav .container .barra-buscador {
+    margin: auto;
+    display: flex;
+}
+
+nav .container .tema {
+    margin-right: 0;
+    margin-left: 2rem;
 }
 
 .barra-buscador {
@@ -696,10 +709,14 @@ main .container .derecha {
 /*===================DISEÑO RESPONSIVE PARA TABLETS PEQUEÑAS Y CELULARES===========================*/
 
 @media screen and (max-width:992px) {
-    nav .barra-buscador {
+    nav .crear {
         display: none;
     }
     
+    nav {
+        display: flex;
+        margin: 0;
+    }
     main .container {
         grid-template-columns: 0 auto 5rem;   
         gap: 0;
