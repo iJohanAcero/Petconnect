@@ -39,8 +39,9 @@ const mascotasPopup = document.querySelector('.mascotas-popup');
 
 //------------ FUNCION DE GUARDIANES
 const guardianesBox = document.querySelector('#guardianes-box'); //FUNCION PARA EL COLOR DE LA CAJA
-const guardianesBoxColor = document.querySelector('.guardianes');  //PARA SELECCIONAR LA CLASE DEL COLOR DE LA CAJA
-const guardianBuscar = document.querySelectorAll('.guardianes');
+const guardianes = document.querySelector('.guardianes');  //PARA SELECCIONAR LA CLASE DEL COLOR DE LA CAJA
+const guardian = guardianes.querySelectorAll('.guardian-enlinea'); //PARA BUSCAR EL GUARDIAN CON UN FILTRO
+const guardianBuscador = document.querySelector('#guardian-buscador') //FUNCION DEL INPUT DEL BUSCADOR DE GUARDIANES
 
 //--------- REMOVER LA CLASE ACTIVO DE TODOS LOS ITEMS DEL MENU
 const cambiarActivo = () => {
@@ -72,9 +73,27 @@ MenuItem.forEach(item =>{
 // ======= CAJA DE GUARDIANES =================
 
 guardianesBox.addEventListener('click', () => {
-    guardianesBoxColor.style.boxShadow = '0 0 1rem var(--color-primary)'; //PARA QUE CAMBIE DE COLOR CON EL CLICK AL CLOR PRIMARIO
+    guardianes.style.boxShadow = '0 0 1rem var(--color-primary)'; //PARA QUE CAMBIE DE COLOR CON EL CLICK AL CLOR PRIMARIO
 
     setTimeout(() => {
-        guardianesBoxColor.style.boxShadow = 'none';
-    }, 2000);
+        guardianes.style.boxShadow = 'none';
+    }, 1500);
 })
+
+// ================= FILTRADO DE PERFILES ====================
+//BUSCADOR DE PERFILES
+const buscarGuardian = () => {
+    const val = guardianBuscador.value.toLowerCase();
+    console.log(val);
+    guardian.forEach(buscar => {
+        let name = buscar.querySelector('h5').textContent.toLowerCase();
+        if(name.indexOf(val) != -1) {
+            buscar.style.display ='flex';
+        } else {
+            buscar.style.display = 'none';
+        }
+    })
+}
+//BUSCADOR PERFIL
+guardianBuscador.addEventListener('keyup', buscarGuardian);
+
