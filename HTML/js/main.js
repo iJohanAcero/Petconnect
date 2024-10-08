@@ -39,8 +39,8 @@ const mascotasPopup = document.querySelector('.mascotas-popup');
 
 //------------ FUNCION DE GUARDIANES
 const guardianesBox = document.querySelector('#guardianes-box'); //FUNCION PARA EL COLOR DE LA CAJA
-const guardianes = document.querySelector('.guardianes');  //PARA SELECCIONAR LA CLASE DEL COLOR DE LA CAJA
-const guardian = guardianes.querySelectorAll('.guardian-enlinea'); //PARA BUSCAR EL GUARDIAN CON UN FILTRO
+const guardianes = document.querySelector('.guardianes');  //PARA SELECCIONAR LA CLASE de todos los guardianes
+const guardian = guardianes.querySelectorAll('.guardian-enlinea, .guardian-offline');
 const guardianBuscador = document.querySelector('#guardian-buscador') //FUNCION DEL INPUT DEL BUSCADOR DE GUARDIANES
 
 //--------- REMOVER LA CLASE ACTIVO DE TODOS LOS ITEMS DEL MENU
@@ -97,3 +97,46 @@ const buscarGuardian = () => {
 //BUSCADOR PERFIL
 guardianBuscador.addEventListener('keyup', buscarGuardian);
 
+//CAMBIAR DE OFFLINE A ONLINE
+
+// Seleccionar elementos del DOM
+const enlineaBtn = document.querySelector('.enlinea');
+const offlineBtn = document.querySelector('.offline');
+const guardianesEnlinea = document.querySelectorAll('.guardian-enlinea');
+const guardianesOffline = document.querySelectorAll('.guardian-offline');
+
+// Función para mostrar solo guardianes en línea
+enlineaBtn.addEventListener('click', () => {
+    guardianesEnlinea.forEach(guardian => {
+        guardian.style.display = 'flex'; // Mostrar guardianes en línea
+    });
+    guardianesOffline.forEach(guardian => {
+        guardian.style.display = 'none'; // Ocultar guardianes offline
+    });
+});
+
+// Función para mostrar solo guardianes offline
+offlineBtn.addEventListener('click', () => {
+    guardianesEnlinea.forEach(guardian => {
+        guardian.style.display = 'none'; // Ocultar guardianes en línea
+    });
+    guardianesOffline.forEach(guardian => {
+        guardian.style.display = 'flex'; // Mostrar guardianes offline
+    });
+});
+
+// =============  CAMBIAR DE COLOR LA CATEGORIA ONLINE ===========
+const categoriaOn = document.querySelectorAll('.enlinea, .offline')
+
+const cambiarCategoria = () => {
+    categoriaOn.forEach(item => {
+        item.classList.remove('activoOn');
+    })
+}
+
+categoriaOn.forEach(item =>{
+    item.addEventListener('click', () => {
+        cambiarCategoria(); //Añadimos la funcion de camibar el activo para que no queden todos activos
+        item.classList.add('activoOn'); 
+    })
+})
