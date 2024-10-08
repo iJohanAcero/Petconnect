@@ -125,6 +125,19 @@ offlineBtn.addEventListener('click', () => {
     });
 });
 
+
+// ============= OCULTAR ENLINEA Y OFLLINE CUANDO SE USE LA BARRA BUSCADOR
+
+guardianBuscador.addEventListener('click', () => {
+    guardianesOffline.forEach(guardian => {
+        guardian.style.display = 'none'; // Ocultar guardianes offline
+    });
+
+    guardianesEnlinea.forEach(guardian => {
+        guardian.style.display = 'none'; // Ocultar guardianes offline
+    });
+})
+
 // =============  CAMBIAR DE COLOR LA CATEGORIA ONLINE ===========
 const categoriaOn = document.querySelectorAll('.enlinea, .offline')
 
@@ -137,6 +150,6 @@ const cambiarCategoria = () => {
 categoriaOn.forEach(item =>{
     item.addEventListener('click', () => {
         cambiarCategoria(); //Añadimos la funcion de camibar el activo para que no queden todos activos
-        item.classList.add('activoOn'); 
+        item.classList.add('activoOn');
     })
 })
