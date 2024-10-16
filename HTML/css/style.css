@@ -601,7 +601,7 @@ main .container .derecha {
     content: "";
     display: block;
     width: 100%;
-    height: 0.5rem;
+    height: 0.4rem;
     background: var(--color-dark);
 }
 /*---------- INICIO CATERGORIA ONLINE-----------------------*/
